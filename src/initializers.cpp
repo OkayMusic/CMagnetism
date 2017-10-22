@@ -38,7 +38,7 @@ make2DSpinGrid(void)
 std::vector<double>
 randomizePhiComponent(std::vector<double> spinGrid)
 {
-    std::uniform_real_distribution<> uniform(0, PI);
+    std::uniform_real_distribution<> uniform(0, 2*PI);
     for (int i = 0; i < size; i++)
     {
         spinGrid[i] = uniform(mersenne);
@@ -49,7 +49,7 @@ randomizePhiComponent(std::vector<double> spinGrid)
 std::vector<double>
 randomizeThetaComponent(std::vector<double> spinGrid)
 {
-    std::uniform_real_distribution<> uniform(0, 2 * PI);
+    std::uniform_real_distribution<> uniform(0, PI);
     for (int i = 0; i < size; i++)
     {
         spinGrid[i] = uniform(mersenne);
@@ -60,7 +60,7 @@ randomizeThetaComponent(std::vector<double> spinGrid)
 std::vector<std::vector<double>>
 randomizePhiComponent(std::vector<std::vector<double>> spinGrid)
 {
-    std::uniform_real_distribution<> uniform(0, PI);
+    std::uniform_real_distribution<> uniform(0, 2*PI);
     short side = sqrt(size);
     for (int i = 0; i < side; i++)
     {
@@ -75,13 +75,26 @@ randomizePhiComponent(std::vector<std::vector<double>> spinGrid)
 std::vector<std::vector<double>>
 randomizeThetaComponent(std::vector<std::vector<double>> spinGrid)
 {
-    std::uniform_real_distribution<> uniform(0, 2 * PI);
+    std::uniform_real_distribution<> uniform(0, PI);
     short side = sqrt(size);
     for (int i = 0; i < side; i++)
     {
         for (int j = 0; j < side; j++)
         {
             spinGrid[i][j] = uniform(mersenne);
+        }
+    }
+}
+
+void sphericalToCartesian(void)
+{
+    switch (dimension){
+        case 1:
+        for (int i = 0; i < size; i++)
+        {
+            xComponent1D[i] = sin(thetaComponent1D[i]) * cos(phiComponent1D[i]);
+            yComponent1D[i] = sin(thetaComponent1D[i]) * sin(phiComponent1D[i]);
+            zComponent1D[i] = cos(thetaComponent1D[i]);
         }
     }
 }

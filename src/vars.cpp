@@ -23,5 +23,5 @@ std::vector<double> zComponent1D;
 std::vector<std::vector<double>> thetaComponent2D;
 std::vector<std::vector<double>> phiComponent2D;
 std::vector<std::vector<double>> xComponent2D;
-std::vector<std::vector<double>> yComponnt2D;
+std::vector<std::vector<double>> yComponent2D;
 std::vector<std::vector<double>> zComponent2D;
