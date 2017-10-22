@@ -52,5 +52,5 @@ randomizePhiComponent(std::vector<std::vector<double>> spinGrid);
 
 namespace localEnergy
 {
-double exchange(int a);
+double energy(int a);
 }

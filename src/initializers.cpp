@@ -84,6 +84,7 @@ randomizeThetaComponent(std::vector<std::vector<double>> spinGrid)
             spinGrid[i][j] = uniform(mersenne);
         }
     }
+	return spinGrid;
 }
 
 void sphericalToCartesian(void)

@@ -55,7 +55,9 @@
             "name": "Win32",
             "includePath": [
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
-                "${workspaceRoot}"
+                "C:/MinGW/include",
+                "${workspaceRoot}",
+                "${workspaceRoot}/src/headers"
             ],
             "defines": [
                 "_DEBUG",
@@ -65,7 +67,8 @@
             "browse": {
                 "path": [
                     "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/src/headers"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
