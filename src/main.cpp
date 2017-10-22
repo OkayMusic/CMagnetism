@@ -11,6 +11,7 @@ int main(void)
     {
         thetaComponent1D = make1DSpinGrid();
         phiComponent1D = make1DSpinGrid();
+        thetaComponent1D = randomizeThetaComponent(thetaComponent1D);
         for (int i = 0; i < size; i++){
             std::cout << thetaComponent1D[i] << std::endl;
         }

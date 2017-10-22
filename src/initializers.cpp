@@ -1,10 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
 #include <random>
 
 #include "magnetism.h"
+
+// initialize mersenne twister PRNG:
+// first seed mersenne twister with entropic noise 
+// the mersenne twister will generate big random integers
+// std::uniform_real_distribution converts the ints to doubles in our 
+// desired interval
+std::random_device mTwistSeed;        
+std::mt19937 mersenne(mTwistSeed());
 
 std::vector<double>
 make1DSpinGrid(void)
@@ -31,8 +38,6 @@ make2DSpinGrid(void)
 std::vector<double>
 randomizePhiComponent(std::vector<double> spinGrid)
 {
-    std::random_device rd;  // Will be used to obtain a seed for the random number engine
-    std::mt19937 mersenne(rd()); // Standard mersenne_twister_engine seeded with rd()
     std::uniform_real_distribution<> uniform(0, PI);
     for (int i = 0; i < size; i++)
     {
@@ -44,12 +49,10 @@ randomizePhiComponent(std::vector<double> spinGrid)
 std::vector<double>
 randomizeThetaComponent(std::vector<double> spinGrid)
 {
-    std::random_device rd;
-    std::mt19937 gen(rd);
-    std::uniform_real_distribution<> dis(0, 2 * PI);
+    std::uniform_real_distribution<> uniform(0, 2 * PI);
     for (int i = 0; i < size; i++)
     {
-        spinGrid[i] = dis(gen);
+        spinGrid[i] = uniform(mersenne);
     }
     return spinGrid;
 }
@@ -57,15 +60,13 @@ randomizeThetaComponent(std::vector<double> spinGrid)
 std::vector<std::vector<double>>
 randomizePhiComponent(std::vector<std::vector<double>> spinGrid)
 {
-    std::random_device rd;
-    std::mt19937 gen(rd);
-    std::uniform_real_distribution<> dis(0, PI);
+    std::uniform_real_distribution<> uniform(0, PI);
     short side = sqrt(size);
     for (int i = 0; i < side; i++)
     {
         for (int j = 0; j < side; j++)
         {
-            spinGrid[i][j] = dis(gen);
+            spinGrid[i][j] = uniform(mersenne);
         }
     }
     return spinGrid;
@@ -74,15 +75,13 @@ randomizePhiComponent(std::vector<std::vector<double>> spinGrid)
 std::vector<std::vector<double>>
 randomizeThetaComponent(std::vector<std::vector<double>> spinGrid)
 {
-    std::random_device rd;
-    std::mt19937 gen(rd);
-    std::uniform_real_distribution<> dis(0, 2 * PI);
+    std::uniform_real_distribution<> uniform(0, 2 * PI);
     short side = sqrt(size);
     for (int i = 0; i < side; i++)
     {
         for (int j = 0; j < side; j++)
         {
-            spinGrid[i][j] = dis(gen);
+            spinGrid[i][j] = uniform(mersenne);
         }
     }
 }
