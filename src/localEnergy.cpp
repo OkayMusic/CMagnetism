@@ -30,13 +30,15 @@ double dm(int a, int b)
 // this function sums the above functions, being careful about the boundaries
 double energy(int a)
 {
+	// update the cartesian representation of the spin components
+	sphericalToCartesian();
 	double energy{0};
 	energy += zeeman(a);
 	if (a != 0)
 	{
 		energy += exchange(a, a-1) + dm(a, a-1);
 	}
-	else if (a != size)
+	else if (a != size - 1)
 	{
 		energy += exchange(a + 1, a) + dm(a + 1, a);
 	}
