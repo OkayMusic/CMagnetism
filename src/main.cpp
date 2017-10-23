@@ -30,12 +30,19 @@ int main(void)
 	}
 	sphericalToCartesian();
 
-	double energy{0};
-	for (int i = 0; i < size; i++)
+
+	while (1)
 	{
-		energy += localEnergy::energy(i);
+		double energy = globalEnergy::energy();
 		std::cout << energy << std::endl;
+		if (energy<(-100))
+		{
+			break;
+		}
+		reduceEnergy();
+		
 	}
+
 
 	std::getchar();
 	return 0;

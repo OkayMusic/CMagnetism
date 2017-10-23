@@ -1,7 +1,10 @@
 #pragma once
 #include <vector>
+#include <random>
 
-const double PI = 3.141592653589793238463;
+// useful things
+extern const double PI;
+extern std::mt19937 mersenne;
 
 // from vars.cpp
 
@@ -48,9 +51,12 @@ randomizeThetaComponent(std::vector<std::vector<double>> spinGrid);
 std::vector<std::vector<double>>
 randomizePhiComponent(std::vector<std::vector<double>> spinGrid);
 
-// from localEnergy.cpp
+// from globalEnergy.cpp
 
-namespace localEnergy
+namespace globalEnergy
 {
-double energy(int a);
+double energy(void);
 }
+
+// from engine.cpp
+void reduceEnergy(void);

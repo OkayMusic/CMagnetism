@@ -1,10 +1,9 @@
 #include <vector>
 #include <random>
 #include <cmath>
-#include <magnetism.h>
 
-std::random_device mTwistSeed;
-std::mt19937 mersenne(mTwistSeed());
+#include "localEnergy.h"
+#include "magnetism.h"
 
 // kicks a spin at site randSite and checks to see if the kick reduced energy
 void wiggle(int randSite)

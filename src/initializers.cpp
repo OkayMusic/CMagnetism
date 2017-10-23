@@ -6,11 +6,10 @@
 #include "magnetism.h"
 
 // initialize mersenne twister PRNG:
-// first seed mersenne twister with entropic noise 
+// first seed mersenne twister with entropic noise
 // the mersenne twister will generate big random integers
-// std::uniform_real_distribution converts the ints to doubles in our 
-// desired interval
-std::random_device mTwistSeed;        
+// std::uniform_distributions convert the ints to doubles in our desired interval
+std::random_device mTwistSeed;
 std::mt19937 mersenne(mTwistSeed());
 
 std::vector<double>
