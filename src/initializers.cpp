@@ -98,3 +98,10 @@ void sphericalToCartesian(void)
         }
     }
 }
+
+void sphericalToCartesian(int i)
+{
+    xComponent1D[i] = sin(thetaComponent1D[i]) * cos(phiComponent1D[i]);
+    yComponent1D[i] = sin(thetaComponent1D[i]) * sin(phiComponent1D[i]);
+    zComponent1D[i] = cos(thetaComponent1D[i]);
+}

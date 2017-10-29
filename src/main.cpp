@@ -34,13 +34,7 @@ int main(void)
 	while (1)
 	{
 		double energy = globalEnergy::energy();
-		std::cout << energy << std::endl;
-		if (energy<(-100))
-		{
-			break;
-		}
-		reduceEnergy();
-		
+		reduceEnergy();		
 	}
 
 

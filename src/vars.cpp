@@ -1,13 +1,11 @@
 #include <vector>
 
-const double PI = 3.141592653589793238463;
-
 short dimension = 1;
 short boundary = 0;
 
-int size = 30 * 30;
+int size = 10000;
 
-double stiffConst = 0;
+double stiffConst = 1;
 double dmConst = 0;
 double surfConst = 0;
 double temperature = 0;

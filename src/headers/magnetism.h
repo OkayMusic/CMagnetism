@@ -3,7 +3,7 @@
 #include <random>
 
 // useful things
-extern const double PI;
+const double PI = 3.141592653589793238463;
 extern std::mt19937 mersenne;
 
 // from vars.cpp
@@ -35,6 +35,7 @@ extern std::vector<std::vector<double>> zComponent2D;
 // from initializers.cpp
 
 void sphericalToCartesian(void);
+void sphericalToCartesian(int i);
 
 std::vector<double> make1DSpinGrid(void);
 std::vector<std::vector<double>> make2DSpinGrid(void);

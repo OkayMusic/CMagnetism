@@ -1,16 +1,17 @@
 #include <vector>
 #include <random>
 #include <cmath>
+#include <iostream>
 
 #include "localEnergy.h"
 #include "magnetism.h"
 
+std::uniform_real_distribution<> thetaDist(-PI/2, PI/2);
+std::uniform_real_distribution<> phiDist(-PI, PI);
+double testEnergy{0};
 // kicks a spin at site randSite and checks to see if the kick reduced energy
 void wiggle(int randSite)
 {
-    std::uniform_real_distribution<> thetaDist(0, PI);
-    std::uniform_real_distribution<> phiDist(0, 2 * PI);
-
     double dPhi = phiDist(mersenne);
     double dTheta = thetaDist(mersenne);
 
@@ -21,6 +22,8 @@ void wiggle(int randSite)
     // now kick the spin at site randSite by dPhi, dTheta
     phiComponent1D[randSite] += dPhi;
     thetaComponent1D[randSite] += dTheta;
+
+    sphericalToCartesian(randSite);
     double newEnergy = localEnergy::energy(randSite);
 
     // if the new configuration is higher in energy, revert configuration
@@ -28,6 +31,8 @@ void wiggle(int randSite)
     {
         phiComponent1D[randSite] = initialPhi;
         thetaComponent1D[randSite] = initialTheta;
+        
+        sphericalToCartesian(randSite);
     }
 }
 
