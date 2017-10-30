@@ -40,7 +40,7 @@ def getMFromDataFile(dataPath, size):
                 pass
     return Mx, My, Mz
 
-def initPlot():
+def initPlot(Mx, My, Mz):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
@@ -51,13 +51,13 @@ def initPlot():
     fig.canvas.draw()
 
 
-def updatePlot():
+def updatePlot(Mx, My, Mz):
     fig = plt.gcf()
     ax = fig.add_subplot(111)
 
     fig.canvas.restore_region(plotters['background'])
 
-    plotters['qui'].set_UVC(Mx, My)
+    plotters['qui'].set_UVC(Mx, My, Mz)
 
     ax.draw_artist(plotters['qui'])
 
@@ -72,10 +72,10 @@ if __name__ == "__main__":
 
     Mx, My, Mz = getMFromDataFile(dataPath, size)
 
-    initPlot()
+    initPlot(Mx, My, Mz)
 
     while(True):
         Mx, My, Mz = getMFromDataFile(dataPath, size)
-        updatePlot()
+        updatePlot(Mx, My, Mz)
         time.sleep(0.25)
 

@@ -6,7 +6,7 @@
 
 void writeData(void)
 {
-    std::ofstream dataFile("dataFile.dat", std::ios::trunc);
+    std::ofstream dataFile("build/dataFile.dat", std::ios::trunc);
 
     if (!dataFile.is_open())
     {
