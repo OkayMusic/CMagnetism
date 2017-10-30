@@ -10,7 +10,7 @@ double dmConst = 0;
 double surfConst = 0;
 double temperature = 0;
 
-std::vector<double> bField{0, 0, 1};
+std::vector<double> bField{0, 0, 0};
 
 // for performance reasons, it is useful to prepare to store both spherical and
 // cartesian components of the spins

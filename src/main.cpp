@@ -30,11 +30,16 @@ int main(void)
 	}
 	sphericalToCartesian();
 
-
+	int counter = 0;
 	while (1)
 	{
-		double energy = globalEnergy::energy();
+		// double energy = globalEnergy::energy();
 		reduceEnergy();		
+		++counter;
+		if (counter % 100 == 0)
+		{
+			writeData();
+		}
 	}
 
 

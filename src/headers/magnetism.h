@@ -61,3 +61,6 @@ double energy(void);
 
 // from engine.cpp
 void reduceEnergy(void);
+
+// from talkToPython.cpp
+void writeData(void);
