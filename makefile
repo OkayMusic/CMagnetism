@@ -1,6 +1,8 @@
 TARGET_EXEC ?= a.out
 
 CC = g++
+CXXFLAGS=-O3 -std=c++14 -pg -D_DEBUG -g -c -Wall
+
 
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src

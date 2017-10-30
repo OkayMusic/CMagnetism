@@ -34,7 +34,10 @@
                 "${workspaceRoot}",
                 "/usr/include/linux",
                 "${workspaceRoot}/headers",
-                "${workspaceRoot}/src/headers"
+                "${workspaceRoot}/src/headers",
+                "/usr/include/c++/5",
+                "/usr/include/x86_64-linux-gnu/c++/5",
+                "/usr/lib/gcc/x86_64-linux-gnu/5/include"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
