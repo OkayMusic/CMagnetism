@@ -41,7 +41,7 @@ double energy(int a)
 	{
 		energy += exchange(a-1, a) + dm(a-1, a);
 	}
-	else if (a != size - 1)
+	if (a != (size - 1))
 	{
 		energy += exchange(a, a+1) + dm(a, a+1);
 	}
