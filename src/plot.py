@@ -47,6 +47,8 @@ def initPlot(Mx, My, Mz):
     plotters['qui'] = ax.quiver(Mx, My, Mz, color = '#220c5f')
     plotters['background'] = fig.canvas.copy_from_bbox(ax.bbox)
 
+    plt.ylim([-1, 1])
+
     fig.show()
     fig.canvas.draw()
 
@@ -65,17 +67,15 @@ def updatePlot(Mx, My, Mz):
 
 if __name__ == "__main__":
     varsPath = "src/vars.cpp"
-
     dataPath = "build/dataFile.dat"
 
     size = getSize(varsPath)
 
     Mx, My, Mz = getMFromDataFile(dataPath, size)
 
-    initPlot(Mx, My, Mz)
+    initPlot(My, Mx, Mz)
 
     while(True):
         Mx, My, Mz = getMFromDataFile(dataPath, size)
-        updatePlot(Mx, My, Mz)
-        time.sleep(0.25)
-
+        updatePlot(My, Mx, Mz)
+        time.sleep(0.033)
