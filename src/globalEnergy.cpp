@@ -13,7 +13,6 @@ double energy(void)
         double siteEnergy = localEnergy::energy(i);
         energy += siteEnergy;
     }
-    std::cout << energy << std::endl;
     return energy;
 }
 }

@@ -33,12 +33,13 @@ int main(void)
 	int counter = 0;
 	while (1)
 	{
-		// double energy = globalEnergy::energy();
 		reduceEnergy();		
 		++counter;
-		if (counter % 100 == 0)
+		if (counter % (200000/size) == 0)
 		{
 			writeData();
+			double energy = globalEnergy::energy();
+			std::cout << energy << std::endl;
 		}
 	}
 

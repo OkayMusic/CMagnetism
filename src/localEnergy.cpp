@@ -6,6 +6,8 @@
 
 namespace localEnergy
 {
+std::vector<double> localEnergies;
+
 // 1D local exchange interaction
 double exchange(int a, int b)
 {
@@ -45,6 +47,13 @@ double energy(int a)
 	{
 		energy += exchange(a, a+1) + dm(a, a+1);
 	}
+	if (!localEnergies[a])
+	{
+		localEnergies.resize(size);
+	}
+	
+	localEnergies[a] = energy;
+
 	return energy;
 }
 }
